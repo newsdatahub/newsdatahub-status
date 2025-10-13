@@ -65,7 +65,7 @@ status-website:
     - rel: stylesheet
       href: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap
     - rel: stylesheet
-      href: https://raw.githubusercontent.com/newsdatahub/newsdatahub-status/refs/heads/master/assets/custom.css
+      href: https://status.newsdatahub.com/custom.css
 
   navbar:
     - title: Status
