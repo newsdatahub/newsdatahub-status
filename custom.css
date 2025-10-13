@@ -1,65 +1,79 @@
 /*
- * Custom CSS Theme for NewsDataHub API Status Page
- *
- * To use this custom theme:
- * 1. Create a file named `custom.css` in your newsdatahub-status repository
- * 2. Copy the contents of this file into `custom.css`
- * 3. Update your .upptimerc.yml to include the custom stylesheet:
- *
- *    status-website:
- *      links:
- *        - rel: stylesheet
- *          href: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap
- *        - rel: stylesheet
- *          href: /custom.css
+ * NewsDataHub API Status Page - Premium Custom Theme
+ * Brand Colors: #403d58 (Deep Purple), #fc7753 (Coral), #f2efea (Light Cream), #3498db (Blue)
+ * Font: Playfair Display (headings) + Inter (body)
  */
 
-/* Root Variables - Customize these colors to match NewsDataHub branding */
-:root {
-  /* Primary Brand Colors */
-  --color-primary: #0066cc;          /* Primary blue - adjust to NewsDataHub brand */
-  --color-primary-dark: #004c99;     /* Darker blue for hovers */
-  --color-primary-light: #3385d6;    /* Lighter blue for accents */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-  /* Status Colors */
-  --color-success: #10b981;          /* Green for "Up" status */
-  --color-warning: #f59e0b;          /* Orange for degraded performance */
-  --color-error: #ef4444;            /* Red for "Down" status */
-  --color-info: #3b82f6;             /* Blue for informational messages */
+:root {
+  /* Brand Colors */
+  --brand-deep-purple: #403d58;
+  --brand-coral: #fc7753;
+  --brand-cream: #f2efea;
+  --brand-blue: #3498db;
+
+  /* Extended Palette */
+  --color-primary: #403d58;
+  --color-primary-light: #5a5675;
+  --color-primary-dark: #2d2a40;
+  --color-accent: #fc7753;
+  --color-accent-light: #fd9476;
+  --color-accent-dark: #fb5e3a;
+  --color-info: #3498db;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-error: #e74c3c;
 
   /* Neutral Colors */
-  --color-background: #ffffff;       /* Main background */
-  --color-background-alt: #f9fafb;   /* Alternative background */
-  --color-surface: #ffffff;          /* Card/surface background */
-  --color-border: #e5e7eb;           /* Border color */
-  --color-text: #111827;             /* Primary text color */
-  --color-text-secondary: #6b7280;   /* Secondary text color */
-  --color-text-muted: #9ca3af;       /* Muted text color */
+  --color-background: #f2efea;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fdfcfb;
+  --color-border: #e0dcd5;
+  --color-text: #403d58;
+  --color-text-secondary: #7a7590;
+  --color-text-muted: #a8a3b8;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  /* Shadows - Elegant and Subtle */
+  --shadow-xs: 0 1px 2px rgba(64, 61, 88, 0.04);
+  --shadow-sm: 0 2px 8px rgba(64, 61, 88, 0.08);
+  --shadow-md: 0 4px 16px rgba(64, 61, 88, 0.12);
+  --shadow-lg: 0 8px 32px rgba(64, 61, 88, 0.16);
+  --shadow-xl: 0 12px 48px rgba(64, 61, 88, 0.20);
 
   /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 0.75rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Typography - Using Inter font */
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--color-text);
-  background-color: var(--color-background);
-  line-height: 1.6;
+  background: var(--color-background);
+  line-height: 1.7;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
 }
 
 /* Header Styling */
@@ -67,263 +81,412 @@ header {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+  padding: 1.5rem 0;
 }
 
-.header-logo img {
-  max-height: 40px;
-  width: auto;
-}
-
-.header-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0;
+.header-title,
+header h1,
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
 }
 
 /* Navigation */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 nav a {
   color: var(--color-text-secondary);
   text-decoration: none;
   font-weight: 500;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: var(--radius-md);
-  transition: all 0.2s ease;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.01em;
 }
 
 nav a:hover {
   color: var(--color-primary);
-  background-color: var(--color-background-alt);
+  background-color: rgba(64, 61, 88, 0.05);
+  transform: translateY(-1px);
 }
 
-/* Status Cards */
-.status-card {
+/* Main Status Banner */
+.status-banner,
+.summary,
+.hero {
+  background: linear-gradient(135deg, var(--brand-deep-purple) 0%, var(--brand-coral) 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  margin: 2rem 0;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.status-banner h1,
+.summary h1,
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Checkmark - Elegant SVG */
+.status-banner::before,
+.summary::before,
+.hero::before,
+.all-operational::before {
+  content: '';
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2327ae60' stroke='white' stroke-width='3'/%3E%3Cpath d='M20 32l8 8 16-16' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Hide default checkmark icon */
+.icon,
+.status-icon,
+svg.octicon {
+  display: none !important;
+}
+
+/* Status Cards - Remove Red Lines & Modernize */
+.site,
+.endpoint,
+.status-card,
+.monitor-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-md);
+  border-left: 4px solid var(--brand-blue) !important; /* Replace red with blue */
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.status-card:hover {
+.site:hover,
+.endpoint:hover,
+.status-card:hover,
+.monitor-card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
+  border-left-color: var(--brand-coral) !important;
+}
+
+/* Up status - use success color */
+.site.up,
+.endpoint.up {
+  border-left-color: var(--color-success) !important;
+}
+
+/* Down status */
+.site.down,
+.endpoint.down {
+  border-left-color: var(--color-error) !important;
+  background: rgba(231, 76, 60, 0.02);
 }
 
 /* Status Badges */
-.status-badge {
+.badge,
+.status-badge,
+.pill {
   display: inline-flex;
   align-items: center;
-  padding: var(--spacing-xs) var(--spacing-md);
-  border-radius: var(--radius-md);
-  font-size: 0.875rem;
+  padding: 0.375rem 1rem;
+  border-radius: 50px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
-}
-
-.status-badge.up {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: var(--color-success);
-}
-
-.status-badge.down {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: var(--color-error);
-}
-
-.status-badge.degraded {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: var(--color-warning);
-}
-
-/* Status Indicator Dots */
-.status-indicator {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: var(--spacing-xs);
-}
-
-.status-indicator.up {
-  background-color: var(--color-success);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-}
-
-.status-indicator.down {
-  background-color: var(--color-error);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-}
-
-/* Uptime Percentage */
-.uptime-percentage {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin: var(--spacing-sm) 0;
-}
-
-.uptime-percentage.excellent {
-  color: var(--color-success);
-}
-
-.uptime-percentage.good {
-  color: var(--color-info);
-}
-
-.uptime-percentage.poor {
-  color: var(--color-warning);
-}
-
-.uptime-percentage.critical {
-  color: var(--color-error);
-}
-
-/* Response Time Charts */
-.response-time-chart {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-md) 0;
-}
-
-/* Buttons */
-.button {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
+  letter-spacing: 0.05em;
   transition: all 0.2s ease;
 }
 
-.button:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-1px);
+.badge.up,
+.status-badge.up,
+.pill.up {
+  background: rgba(39, 174, 96, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.badge.down,
+.status-badge.down,
+.pill.down {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--color-error);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.badge.degraded,
+.status-badge.degraded {
+  background: rgba(243, 156, 18, 0.1);
+  color: var(--color-warning);
+  border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+/* Hide Ugly Wave Charts - Replace with Clean Percentage Bars */
+.history,
+.uptime-history,
+.day-container,
+svg[class*="history"] {
+  display: none !important;
+}
+
+/* Create Custom Uptime Display */
+.uptime-display {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.uptime-period {
+  flex: 1;
+  min-width: 120px;
+}
+
+.uptime-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.uptime-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.uptime-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.uptime-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-success), var(--brand-blue));
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Response Time Display */
+.response-time,
+.metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.response-time-value,
+.metric-value {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--brand-coral);
+}
+
+.response-time-label,
+.metric-label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Endpoint Title */
+.site-title,
+.endpoint-name,
+h3.name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.button,
+button,
+a.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--brand-coral);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-sm);
+}
+
+.button:hover,
+button:hover,
+a.button:hover {
+  background: var(--color-accent-dark);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .button-secondary {
-  background-color: var(--color-background-alt);
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border: 2px solid var(--color-border);
 }
 
 .button-secondary:hover {
-  background-color: var(--color-border);
+  background: var(--color-surface-alt);
+  border-color: var(--color-primary);
 }
 
 /* Incident Timeline */
 .incident {
   background: var(--color-surface);
   border-left: 4px solid var(--color-error);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .incident.resolved {
   border-left-color: var(--color-success);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .incident-title {
+  font-family: var(--font-heading);
   font-weight: 600;
+  font-size: 1.125rem;
   color: var(--color-text);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.5rem;
 }
 
 .incident-timestamp {
-  font-size: 0.875rem;
+  font-size: 13px;
   color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 /* Footer */
 footer {
-  background: var(--color-background-alt);
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border);
-  padding: var(--spacing-xl) 0;
-  margin-top: var(--spacing-xl);
+  padding: 3rem 0;
+  margin-top: 4rem;
   text-align: center;
 }
 
+footer p {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
 footer a {
-  color: var(--color-primary);
+  color: var(--brand-coral);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 footer a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-accent-dark);
   text-decoration: underline;
 }
 
 /* Loading States */
 .loading {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: 3px solid var(--color-border);
   border-radius: 50%;
-  border-top-color: var(--color-primary);
-  animation: spinner 0.6s linear infinite;
+  border-top-color: var(--brand-coral);
+  animation: spinner 0.8s linear infinite;
 }
 
 @keyframes spinner {
   to { transform: rotate(360deg); }
 }
 
+/* Smooth Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site,
+.endpoint,
+.status-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .header-title {
-    font-size: 1.25rem;
+  .header-title,
+  header h1 {
+    font-size: 1.5rem;
   }
 
+  .status-banner h1,
+  .summary h1,
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .site,
+  .endpoint,
   .status-card {
-    padding: var(--spacing-md);
+    padding: 1.25rem;
   }
 
-  .uptime-percentage {
+  .uptime-value {
     font-size: 1.5rem;
   }
 
   nav a {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 13px;
   }
 }
 
-/* Dark Mode Support (Optional) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #111827;
-    --color-background-alt: #1f2937;
-    --color-surface: #1f2937;
-    --color-border: #374151;
-    --color-text: #f9fafb;
-    --color-text-secondary: #d1d5db;
-    --color-text-muted: #9ca3af;
-  }
-
-  .status-card {
-    background: var(--color-surface);
-  }
-
-  header {
-    background: var(--color-surface);
-  }
-}
-
-/* Accessibility Improvements */
+/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -336,54 +499,96 @@ footer a:hover {
   border-width: 0;
 }
 
-/* Focus States for Keyboard Navigation */
 a:focus,
 button:focus {
-  outline: 2px solid var(--color-primary);
+  outline: 3px solid var(--brand-coral);
   outline-offset: 2px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background-alt);
+  background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius-md);
+  background: var(--brand-deep-purple);
+  border-radius: 6px;
+  border: 3px solid var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.3s ease-out;
+  background: var(--brand-coral);
 }
 
 /* Print Styles */
 @media print {
-  .no-print {
+  .no-print,
+  nav,
+  button {
     display: none !important;
   }
 
+  body {
+    background: white;
+  }
+
+  .site,
+  .endpoint,
   .status-card {
     break-inside: avoid;
+    box-shadow: none;
+  }
+}
+
+/* Extra Polish - Gradient Text for Headers */
+.status-banner h1::first-line,
+.summary h1::first-line {
+  background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Uptime Percentage Styling */
+.uptime-percentage {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-success);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+/* Status Indicator Dots */
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.status-dot.up {
+  background: var(--color-success);
+  box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
+}
+
+.status-dot.down {
+  background: var(--color-error);
+  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+  animation: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
