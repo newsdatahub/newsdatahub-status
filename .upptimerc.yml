@@ -1,4 +1,4 @@
- Upptime Configuration for NewsDataHub API Status Page
+# Upptime Configuration for NewsDataHub API Status Page
 # Repository: https://github.com/upptime/upptime
 # Documentation: https://upptime.js.org
 
@@ -134,7 +134,7 @@ notifications:
   
 # Assignees for Issues (GitHub usernames)
 assignees:
-  - YOUR_GITHUB_USERNAME
+  - newsdatahub
   
 # Repository Settings
 skipDescriptionUpdate: false
