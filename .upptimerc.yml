@@ -1,36 +1,149 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+ Upptime Configuration for NewsDataHub API Status Page
+# Repository: https://github.com/upptime/upptime
+# Documentation: https://upptime.js.org
 
+# GitHub Repository Configuration
+owner: newsdatahub # Change this to your GitHub username
+repo: newsdatahub-status # Repository name (will be created from template)
+
+# API Endpoints to Monitor
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  - name: NewsDataHub API - News Endpoint
+    url: https://api.newsdatahub.com/v1/news?per_page=1&language=en
+    icon: https://newsdatahub.com/favicon.ico
+    maxResponseTime: 5000
+    expectedStatusCodes:
+      - 200
+    headers:
+      - "X-API-Key: $NEWSDATAHUB_API_KEY"
 
+  - name: NewsDataHub API - Top News Endpoint
+    url: https://api.newsdatahub.com/v1/top-news?per_page=1&hours=24
+    icon: https://newsdatahub.com/favicon.ico
+    maxResponseTime: 5000
+    expectedStatusCodes:
+      - 200
+    headers:
+      - "X-API-Key: $NEWSDATAHUB_API_KEY"
+
+  - name: NewsDataHub API - Sources Endpoint
+    url: https://api.newsdatahub.com/v1/sources?per_page=20&country=US
+    icon: https://newsdatahub.com/favicon.ico
+    maxResponseTime: 3000
+    expectedStatusCodes:
+      - 200
+    headers:
+      - "X-API-Key: $NEWSDATAHUB_API_KEY"
+
+# Status Website Configuration
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # Basic Information
+  name: NewsDataHub API Status
+  logoUrl: https://newsdatahub.com/logo.png
+  favicon: https://newsdatahub.com/favicon.ico
+  faviconSvg: https://newsdatahub.com/favicon.svg
+
+  # Custom Domain (after DNS setup)
+  cname: status.newsdatahub.com
+
+  # Base URL for the status page
+  baseUrl: /newsdatahub-status
+
+  # Theme and Appearance
+  theme: light
+
+  # Navigation Links
+  links:
+    - rel: stylesheet
+      href: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap
+
   navbar:
     - title: Status
       href: /
+    - title: API Documentation
+      href: https://newsdatahub.com/docs
+    - title: Support
+      href: mailto:support@newsdatahub.com
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  # Metadata
+  metaTags:
+    - name: "description"
+      content: "Real-time status and uptime monitoring for NewsDataHub API"
+    - name: "og:title"
+      content: "NewsDataHub API Status"
+    - name: "og:description"
+      content: "Real-time status and uptime monitoring for NewsDataHub API"
+    - name: "og:image"
+      content: "https://newsdatahub.com/og-image.png"
+
+  # Announcements (optional - uncomment to use)
+  # introTitle: "Welcome to NewsDataHub API Status"
+  # introMessage: "This page shows real-time operational status of NewsDataHub API endpoints."
+    
+  # Footer
+  footerText: |
+    © 2025 NewsDataHub. All rights reserved.
+    [Privacy Policy](https://newsdatahub.com/privacy) · [Terms of Service](https://newsdatahub.com/terms)
+# Uptime Monitoring Schedule (Cron Syntax)
+# All times in UTC
+workflowSchedule:
+  graphs: "0 0 * * *"        # Generate graphs daily at midnight UTC
+  responseTime: "0 23 * * *" # Update response times daily at 11 PM UTC
+  staticSite: "0 1 * * *"    # Build static site daily at 1 AM UTC
+  summary: "0 0 * * *"       # Generate summary daily at midnight UTC
+  updateTemplate: "0 3 * * *" # Update template daily at 3 AM UTC
+  updates: "0 3 * * *"       # Check for updates daily at 3 AM UTC
+  uptime: "*/5 * * * *"      # Check uptime every 5 minutes
+
+# Commit Messages
+commitMessages:
+  readmeContent: ":pencil: Update summary in README [skip ci] [upptime]"
+  summaryJson: ":card_file_box: Update status summary [skip ci] [upptime]"
+  statusChange: "$EMOJI $SITE_NAME is $STATUS ($RESPONSE_CODE in $RESPONSE_TIME ms) [skip ci] [upptime]"
+  graphsUpdate: ":bento: Update graphs [skip ci] [upptime]"
+  commitAuthorName: "Upptime Bot"
+  commitAuthorEmail: "noreply@upptime.js.org"
+
+# User Agent for Requests
+user-agent: upptime
+
+# Notification Settings
+# Email notifications (requires GitHub Actions secrets setup)
+notifications:
+  - type: email
+    to: support@newsdatahub.com
+    onStatusChange: true
+    onIncident: true
+    onIncidentResolved: true
+
+# Uncomment to add Slack notifications (requires webhook URL in secrets)
+# - type: slack   
+#   webhook: $SLACK_WEBHOOK_URL
+#   onStatusChange: true
+#   onIncident: true
+#   onIncidentResolved: true
+  
+# Uncomment to add Discord notifications
+# - type: discord
+#   webhook: $DISCORD_WEBHOOK_URL
+#   onStatusChange: true
+#   onIncident: true
+#   onIncidentResolved: true
+  
+# Assignees for Issues (GitHub usernames)
+assignees:
+  - YOUR_GITHUB_USERNAME
+  
+# Repository Settings
+skipDescriptionUpdate: false
+skipTopicsUpdate: false  
+skipHomepageUpdate: false
+
+# PAT (Personal Access Token) Configuration
+# Set GH_PAT in repository secrets with repo and workflow scopes
+
+# Rate Limiting - Be conservative to avoid API quota issues
+# With 5-minute checks: 288 requests/day per endpoint (864 total for 3 endpoints)
+# Ensure your API tier can handle this load
