@@ -47,7 +47,7 @@ status-website:
   cname: status.newsdatahub.com
 
   # Base URL for the status page
-  baseUrl: /newsdatahub-status
+  baseUrl: /
 
   # Theme and Appearance
   theme: light
