@@ -3,8 +3,8 @@
 # Documentation: https://upptime.js.org
 
 # GitHub Repository Configuration
-owner: newsdatahub # Change this to your GitHub username
-repo: newsdatahub-status # Repository name (will be created from template)
+owner: newsdatahub
+repo: newsdatahub-status
 
 # API Endpoints to Monitor
 sites:
