@@ -1,7 +1,7 @@
 url: https://api.newsdatahub.com/v1/news?per_page=1&language=en
 status: up
 code: 200
-responseTime: 782
-lastUpdated: 2025-10-13T21:20:30.384Z
+responseTime: 588
+lastUpdated: 2025-10-13T21:26:47.722Z
 startTime: 2025-10-13T21:10:26.312Z
 generator: Upptime <https://github.com/upptime/upptime>
