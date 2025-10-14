@@ -34,5 +34,41 @@
     "timeMonth": 143,
     "timeYear": 143,
     "dailyMinutesDown": {}
+  },
+   {
+    "name": "NewsDataHub API - Related Articles Endpoint",
+    "url": "https://api.newsdatahub.com/v1/news/e1e7de80-d649-4cf5-a038-bb39606d8742/related?per_page=1&fields=title,pub_date,source_title",
+    "icon": "https://newsdatahub.com/favicon.ico",
+    "slug": "news-data-hub-api-news-endpoint",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 410,
+    "timeDay": 410,
+    "timeWeek": 410,
+    "timeMonth": 410,
+    "timeYear": 410,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "NewsDataHub API - Sources Endpoint",
+    "url": "https://api.newsdatahub.com/v1/sources?per_page=20&country=US",
+    "icon": "https://newsdatahub.com/favicon.ico",
+    "slug": "news-data-hub-api-top-news-endpoint",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 301,
+    "timeDay": 301,
+    "timeWeek": 301,
+    "timeMonth": 301,
+    "timeYear": 301,
+    "dailyMinutesDown": {}
   }
 ]
