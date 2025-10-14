@@ -100,10 +100,10 @@ status-website:
 # Uptime Monitoring Schedule (Cron Syntax)
 # All times in UTC
 workflowSchedule:
-  graphs: "0 0 * * *"        # Generate graphs daily at midnight UTC
-  responseTime: "0 23 * * *" # Update response times daily at 11 PM UTC
-  staticSite: "0 1 * * *"    # Build static site daily at 1 AM UTC
-  summary: "0 0 * * *"       # Generate summary daily at midnight UTC
+  graphs: "0 */2 * * *"      # Generate graphs every 2 hours
+  responseTime: "0 */2 * * *" # Update response times every 2 hours
+  staticSite: "0 */2 * * *"  # Build static site every 2 hours
+  summary: "*/30 * * * *"    # Generate summary every 30 minutes
   updateTemplate: "0 3 * * *" # Update template daily at 3 AM UTC
   updates: "0 3 * * *"       # Check for updates daily at 3 AM UTC
   uptime: "*/5 * * * *"      # Check uptime every 5 minutes
