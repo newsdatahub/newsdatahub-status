@@ -1,0 +1,38 @@
+[
+  {
+    "name": "NewsDataHub API - News Endpoint",
+    "url": "https://api.newsdatahub.com/v1/news?per_page=1&language=en",
+    "icon": "https://newsdatahub.com/favicon.ico",
+    "slug": "news-data-hub-api-news-endpoint",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 741,
+    "timeDay": 741,
+    "timeWeek": 741,
+    "timeMonth": 741,
+    "timeYear": 741,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "NewsDataHub API - Top News Endpoint",
+    "url": "https://api.newsdatahub.com/v1/top-news?per_page=1&hours=24",
+    "icon": "https://newsdatahub.com/favicon.ico",
+    "slug": "news-data-hub-api-top-news-endpoint",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 143,
+    "timeDay": 143,
+    "timeWeek": 143,
+    "timeMonth": 143,
+    "timeYear": 143,
+    "dailyMinutesDown": {}
+  }
+]
