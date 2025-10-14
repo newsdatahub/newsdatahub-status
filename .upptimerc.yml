@@ -58,7 +58,7 @@ status-website:
   baseUrl: /
 
   # Theme and Appearance
-  theme: ocean
+  theme: night
 
   # Navigation Links
   links:
